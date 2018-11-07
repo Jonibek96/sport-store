@@ -1,0 +1,76 @@
+<div class="navbar bg-dark navbar-dark">
+  <a class="nav-link text-white  shadow" routerLink="/store">SPORTS STORE</a>
+</div>
+<div *ngIf="orderSent" class="m-1 text-xl-center">
+  <h2>Спасибо!</h2>
+  <p>Спасибо за оформление заказа.</p>
+  <p>Мы отправим ваши товары как можно скорее.</p>
+  <button class="btn btn-primary" routerLink="/store">Вернуться в магазин</button>
+</div>
+<form
+  *ngIf="!orderSent"
+  class="m-lg-5  shadow shadow-lg p-4"
+  #form="ngForm"
+  novalidate
+  (ngSubmit)="submitOrder(form)"
+>
+  <div class="form-group">
+    <label>Имя</label>
+    <input class="form-control" #name="ngModel" name="name"
+           [(ngModel)]="order.name" required />
+      <span *ngIf="submitted && name.invalid" class="text-danger">
+     Пожалуйста, введите ваше имя
+      </span>
+  </div>
+  <div class="form-group">
+    <label>Адресс</label>
+    <input class="form-control" #address="ngModel" name="address"
+           [(ngModel)]="order.address" required />
+      <span *ngIf="submitted && address.invalid" class="text-danger">
+      Пожалуйста, введите свой адрес
+      </span>
+  </div>
+  <div class="form-group">
+    <label>Город</label>
+    <input class="form-control" #city="ngModel" name="city"
+           [(ngModel)]="order.city" required />
+      <span *ngIf="submitted && city.invalid" class="text-danger">
+     Пожалуйста, введите свой город
+      </span>
+  </div>
+  <div class="form-group">
+      <label>Состояние</label>
+    <input class="form-control" #state="ngModel" name="state"
+           [(ngModel)]="order.state" required />
+    <span *ngIf="submitted && state.invalid" class="text-danger">
+    Пожалуйста, введите ваше состояние
+    </span>
+  </div>
+  <div class="form-group">
+    <label>Почтовый email</label>
+    <input
+      class="form-control"
+      #zip="ngModel"
+      name="zip"
+      type="email"
+      email
+      [(ngModel)]="order.zip"
+      required />
+    <span *ngIf="submitted && zip.invalid" class="text-danger">
+   Введите коректный email
+    </span>
+  </div>
+  <div class="form-group">
+    <label>Страна</label>
+    <input class="form-control" #country="ngModel" name="country"
+           [(ngModel)]="order.country" required />
+    <span *ngIf="submitted && country.invalid" class="text-danger">
+    Пожалуйста, введите вашу страну
+    </span>
+  </div>
+  <hr class="bg-dark" />
+  <div class="text-xl-center">
+    <button class="btn btn-secondary m-1" routerLink="/cart">Назад</button>
+    <button class="btn btn-primary" type="submit">Complete Order</button>
+  </div>
+</form>

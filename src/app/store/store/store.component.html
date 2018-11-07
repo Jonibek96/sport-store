@@ -1,0 +1,48 @@
+<div class="navbar bg-dark navbar-dark">
+  <a class="nav-link text-white  shadow">SPORTS STORE</a>
+    <app-cart-summary></app-cart-summary>
+</div>
+<div class="col-xl-2 p-1 float-left mt-1">
+  <button class="btn btn-block btn-outline-primary" (click)="changeCategory()">Home</button>
+  <button
+    *ngFor="let cat of categories"
+    class="btn btn-block btn-outline-primary "
+    [class.active]="cat == selectedCategory"
+    (click)="changeCategory(cat)"
+  >{{cat}}</button>
+  <button class="btn btn-block btn-danger" routerLink="/admin">
+    Admin
+  </button>
+</div>
+<div class="col-xl-10  p-1 float-right shadow-lg mt-1">
+  <div *ngFor="let product of products" class="card card-title shadow shadow-lg">
+    <h4 class="card-header bg-light">
+      {{product.name}}
+        <span class="float-right badge badge-info">
+          {{product.price | currency: "TJS": true: "2.2-2"}}
+        </span>
+    </h4>
+    <div class="card-text bg-white p-2 pr-3">{{product.description}}
+      <button class="btn btn-success btn-sm float-right"
+              (click)="addProductToCart(product)">
+        <span>Купить<mat-icon class="md-2-line">shopping_cart</mat-icon></span>
+      </button>
+    </div>
+  </div>
+  <div class="float-left form-inline">
+    <select class="form-control"
+            [value]="productsPerPage"
+            (change)="changePageSize($event.target.value)">
+      <option value="3">3 страница</option>
+      <option value="4">4 страница</option>
+      <option value="6">6 страница</option>
+      <option value="8">8 страница</option>
+    </select>
+  </div>
+  <div class="btn-group float-right">
+    <button *counter="let page of pageCount" (click)="changePage(page)"
+            class="btn btn-outline-primary" [class.active]="page == selectedPage">
+      {{page}}
+    </button>
+  </div>
+</div>

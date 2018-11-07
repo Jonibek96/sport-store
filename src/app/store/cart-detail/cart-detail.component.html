@@ -1,0 +1,60 @@
+<div class="navbar bg-dark navbar-dark">
+  <a class="nav-link text-white  shadow" routerLink="/store">SPORTS STORE</a>
+</div>
+<div class="m-3  p-2  shadow shadow-lg">
+  <h2 class="text-xl-center">Ваша корзина</h2>
+  <table class="table table-bordered table-striped p-1">
+    <thead>
+    <tr>
+      <th>Количество</th>
+      <th>Продукт</th>
+      <th class="text-xl-right">Цена</th>
+      <th class="text-xl-right">Итог</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="cart.lines.length == 0">
+      <td colspan="4" class="text-xl-center">
+        Ваша корзина пуста
+      </td>
+    </tr>
+    <tr *ngFor="let line of cart.lines">
+      <td>
+        <input type="number" class="form-control"
+               style="width:5em"
+               [value]="line.quantity"
+               (change)="cart.updateQuantity(line.product,
+                $event.target.value)"/>
+      </td>
+      <td>{{line.product.name}}</td>
+      <td class="text-xl-right">
+        {{line.product.price | currency:"TJS":true:"2.2-2"}}
+      </td>
+      <td class="text-xl-right">
+        {{(line.lineTotal) | currency:"TJS":true:"2.2-2" }}
+      </td>
+      <td class="text-xl-center">
+        <button class="btn btn-sm btn-danger"
+                (click)="cart.removeLine(line.product.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="3" class="text-xl-right">Всего:</td>
+      <td class="text-xl-right">
+        {{cart.cartPrice | currency:"TJS":true:"2.2-2"}}
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+<div class="text-xl-center">
+  <button class="btn btn-primary m-1" routerLink="/store">Продолжить покупки</button>
+  <button class="btn btn-secondary" routerLink="/checkout"
+          [disabled]="cart.lines.length == 0">
+    Checkout
+  </button>
+</div>

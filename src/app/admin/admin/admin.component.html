@@ -1,0 +1,23 @@
+<div class="navbar bg-dark navbar-dark">
+  <a class="nav-link text-white  shadow" routerLink="/store">SPORTS STORE</a>
+  <button class="btn btn-outline-danger  float-right" (click)="logout()">
+    Выйти
+  </button>
+</div>
+<div class="m-1">
+  <div class="col-xl-2 p-1 float-left">
+    <button class="btn btn-outline-info btn-block"
+            routerLink="/admin/main/products"
+            routerLinkActive="active">
+      Продукт
+    </button>
+    <button class="btn btn-outline-info btn-block"
+            routerLink="/admin/main/orders"
+            routerLinkActive="active">
+      Заказы
+    </button>
+  </div>
+  <div class="col-xl-10 float-right shadow p-2 mt-1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="navbar bg-dark navbar-dark">
+  <a class="nav-link text-white  shadow" routerLink="/store">SPORTS STORE Admin</a>
+</div>
+<div class="p-3" style="width: 400px; height: 400px; margin: 0 500px 0 500px">
+  <form novalidate #form="ngForm" name="error" (ngSubmit)="authenticate(form)" class="shadow p-3">
+    <h5>Введите ваш логин и парол</h5>
+    <div class="form-group">
+      <label>Логин</label>
+      <input class="form-control" name="username" #name="ngModel"
+             [(ngModel)]="username" required />
+      <span *ngIf="errorMessage && name.invalid" class="text-danger">
+     Логин не должен быть пустой
+      </span>
+    </div>
+    <div class="form-group">
+      <label>Парол</label>
+      <input
+        class="form-control"
+        type="password"
+        name="password"
+        #name="ngModel"
+        [(ngModel)]="password" required
+      />
+      <span *ngIf="errorMessage && name.invalid" class="text-danger">
+        Парол не должен быть пустой
+      </span>
+    </div>
+    <span class="text-danger">{{errorLogin}}</span>
+    <hr class="bg-dark">
+    <div class="text-xl-center ">
+      <button class="btn btn-secondary" routerLink="/">Выход</button>
+      <button class="btn btn-primary ml-1" type="submit">Вход</button>
+    </div>
+  </form>
+</div>

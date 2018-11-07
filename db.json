@@ -1,0 +1,82 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "Lifejacket",
+      "category": "Водные виды ",
+      "description": "Protective and fashionable",
+      "price": 48.95
+    },
+    {
+      "id": 4,
+      "name": "Corner Flags",
+      "category": "Футбольный",
+      "description": "Give your playing field a professional touch",
+      "price": 34.95
+    },
+    {
+      "id": 9,
+      "name": "Bling Bling King",
+      "category": "Шахматы",
+      "description": "Gold-plated, diamond-studded King",
+      "price": "120"
+    },
+    {
+      "id": 10,
+      "name": "Ball",
+      "category": "Водные виды",
+      "description": "Super ball olympik",
+      "price": "250"
+    },
+    {
+      "name": "Крассовки",
+      "category": "Обувь",
+      "description": "Беговые кроссовки Mizuno Wave Ibuki GTX - J1GJ1859-03...\nМужские беговые трейловые кроссовки для бега по пересеченной местности Mizuno Wave Ibuki GTX с мемб..",
+      "price": "450",
+      "id": 11
+    },
+    {
+      "id": 12,
+      "name": "Футболка",
+      "category": "Одежда",
+      "description": "Футболка 4F серый (H4Z17-TSMF001-1945)",
+      "price": "150"
+    },
+    {
+      "name": "Сумка",
+      "category": "Аксессуары",
+      "description": "Mizuno Team Backpack - K3EY6A06-90",
+      "price": "200",
+      "id": 13
+    }
+  ],
+  "orders": [
+    {
+      "cart": {
+        "lines": [
+          {
+            "product": {
+              "id": 4,
+              "name": "Corner Flags",
+              "category": "Футбольный",
+              "description": "Give your playing field a professional touch",
+              "price": 34.95
+            },
+            "quantity": 1
+          }
+        ],
+        "itemCount": 1,
+        "cartPrice": 34.95
+      },
+      "shipped": false,
+      "name": "Kholid",
+      "address": "82-мкр",
+      "city": "Душанбе",
+      "zip": "Jonibek1996inbox.ru",
+      "country": "Таджикистан",
+      "state": "норм",
+      "id": 1
+    }
+  ],
+  "foto": []
+}
